@@ -6,6 +6,7 @@ var livereload = require('gulp-livereload');
 var nodemon = require('gulp-nodemon');
 var postcss = require('gulp-postcss');
 var sourcemaps = require('gulp-sourcemaps');
+var zip = require('gulp-zip');
 
 // postcss plugins
 var autoprefixer = require('autoprefixer');
@@ -52,3 +53,9 @@ gulp.task('watch', function () {
 gulp.task('default', ['build'], function () {
     gulp.start('watch');
 });
+
+gulp.task('release', ['css'], function() {
+    gulp.src(['*', '*/**', '!.git/', '!node_modules/', '!node_modules/**', '!./dist/'])
+        .pipe(zip('casper-mornati-net.zip'))
+        .pipe(gulp.dest('dist'));
+})

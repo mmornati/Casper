@@ -2,7 +2,7 @@
   "name": "casper-mornati-net",
   "description": "The default personal blogging theme for Ghost. Beautiful, minimal and responsive.",
   "demo": "https://blog.mornati.net",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "engines": {
     "ghost": ">=1.0.0"
   },

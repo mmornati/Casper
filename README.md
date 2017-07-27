@@ -54,6 +54,55 @@ Casper uses inline SVG icons, included via Handlebars partials. You can find all
 
 You can add your own SVG icons in the same manner.
 
+## Configuration
+This theme comes with a default ***favicon*** generated with [Real Favicon Generator](http://realfavicongenerator.net). If you want to add your *favicon* you can generate your own (with [Real Favicon Generator](http://realfavicongenerator.net)) and place downloaded files inside the ***assets/img/favicons*** Odin directory.
+
+***Disqus*** comments, ***Google Analytics*** and ***CookieBar*** are disabled by default, but they are easily configurable with *Blog Header Code Injection* inside your Ghost Admin Area.
+
+```html
+<script>
+// to enable Google Analytics
+var ga_id = 'YOUR-UA-ID_HERE';
+
+// to enable Disqus
+var disqus_shortname = 'YOUR_DISQUS_SHORTNAME'
+
+//to Enable the cookiebar (http://www.primebox.co.uk/projects/jquery-cookiebar/)
+var cookieBarSettings = {
+    message: 'We use cookies to track usage and preferences',
+	acceptButton: true,
+	acceptText: 'I Understand'
+};
+//List of available CookieBar Settings
+// message: 'We use cookies to track usage and preferences',
+// acceptButton: true,
+// acceptText: 'I Understand',
+// acceptFunction: null,
+// declineButton: false,
+// declineText: 'Disable Cookies',
+// declineFunction: null,
+// policyButton: true,
+// policyText: 'Privacy Policy',
+// policyURL: '/privacy-policy/',
+// autoEnable: true,
+// acceptOnContinue: false,
+// acceptOnScroll: false,
+// acceptAnyClick: false,
+// expireDays: 365,
+// renewOnVisit: false,
+// forceShow: false,
+// effect: 'slide',
+// element: 'body',
+// append: false,
+// fixed: false,
+// bottom: false,
+// zindex: '',
+// domain: 'www.example.com',
+// referrer: 'www.example.com'
+
+</script>
+```
+
 
 # Copyright & License
 

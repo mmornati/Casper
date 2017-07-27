@@ -75,6 +75,8 @@ into the {body} of the default.hbs template --}}
             The only thing you need to change is "test-apkdzgmqhj" - which
             should be replaced with your own Disqus site-id.
 
+            --}}
+
             <section class="post-full-comments">
                 <div id="disqus_thread"></div>
                 <script>
@@ -82,15 +84,17 @@ into the {body} of the default.hbs template --}}
                         this.page.url = '{{url absolute="true"}}';
                         this.page.identifier = 'ghost-{{id}}';
                     };
-                    (function() {
-                        var d = document, s = d.createElement('script');
-                        s.src = 'https://test-apkdzgmqhj.disqus.com/embed.js';
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
+                    if(disqus_shortname && typeof disqus_shortname === "string") {
+                      (function() {
+                          var d = document, s = d.createElement('script');
+                          s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+                          s.setAttribute('data-timestamp', +new Date());
+                          (d.head || d.body).appendChild(s);
+                      }
                     })();
                 </script>
             </section>
-            --}}
+
 
         </article>
 

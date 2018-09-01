@@ -6,3 +6,4 @@ rvm:
 before_script:
   - npm install -g gulp-cli
 script: gulp release
+sudo: false

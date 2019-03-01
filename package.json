@@ -54,7 +54,7 @@
         "postcss-custom-properties": "6.3.0",
         "postcss-easy-import": "3.0.0",
         "gulp-filter": "5.1.0",
-        "gulp-uglify": "3.0.1"
+        "gulp-uglify": "3.0.2"
     },
     "config": {
         "posts_per_page": 25

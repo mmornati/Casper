@@ -2,9 +2,10 @@
     "name": "casper-mornati-net",
     "description": "The default personal blogging theme for Ghost. Beautiful, minimal and responsive.",
     "demo": "https://demo.ghost.io",
-    "version": "2.7.1",
+    "version": "2.9.3",
     "engines": {
-        "ghost": ">=2.0.0"
+        "ghost": ">=2.0.0",
+        "ghost-api": "v2"
     },
     "license": "MIT",
     "screenshots": {
@@ -14,7 +15,9 @@
     "scripts": {
         "dev": "gulp",
         "zip": "gulp zip",
-        "test": "gscan ."
+        "test": "gscan .",
+        "preship": "yarn test",
+        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
     },
     "author": {
         "name": "Ghost Foundation",
@@ -42,8 +45,10 @@
     "devDependencies": {
         "autoprefixer": "8.0.0",
         "cssnano": "3.10.0",
+        "beeper": "^1.1.1",
         "gscan": "^2.0.0",
         "gulp": "3.9.1",
+        "gulp-filter": "5.1.0",
         "gulp-livereload": "3.8.1",
         "gulp-postcss": "7.0.1",
         "gulp-sourcemaps": "2.6.2",
@@ -53,10 +58,30 @@
         "postcss-color-function": "4.0.0",
         "postcss-custom-properties": "6.3.0",
         "postcss-easy-import": "3.0.0",
-        "gulp-filter": "5.1.0",
-        "gulp-uglify": "3.0.1"
+        "gulp-uglify": "3.0.1",
+        "pump": "3.0.0"
     },
     "config": {
-        "posts_per_page": 25
+        "posts_per_page": 25,
+        "image_sizes": {
+            "xxs": {
+                "width": 30
+            },
+            "xs": {
+                "width": 100
+            },
+            "s": {
+                "width": 300
+            },
+            "m": {
+                "width": 600
+            },
+            "l": {
+                "width": 1000
+            },
+            "xl": {
+                "width": 2000
+            }
+        }
     }
 }

@@ -1,3 +1,4 @@
+dist: xenial
 language: node_js
 node_js:
   - "10"
@@ -7,3 +8,7 @@ before_script:
   - npm install -g gulp-cli
 script: gulp release
 sudo: false
+cache: yarn
+
+# Don't run builds for renovate PRs
+if: NOT head_branch =~ ^renovate

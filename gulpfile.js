@@ -99,7 +99,7 @@ try {
     config = null;
 }
 
-const REPO = 'TryGhost/Casper';
+const REPO = 'mmornati/Casper';
 const USER_AGENT = 'Casper';
 const CHANGELOG_PATH = path.join(process.cwd(), '.', 'changelog.md');
 
@@ -203,16 +203,5 @@ const release = () => {
                 });
         });
 };
+
 exports.release = release;
-
-gulp.task('default', ['build'], function () {
-    gulp.start('watch');
-});
-
-gulp.task('release', ['css'], function() {
-    gulp.src(['*', '*/**', '!.git/', '!node_modules/', '!node_modules/**', '!./dist/'])
-        .pipe(zip('casper-mornati-net.zip'))
-        .pipe(gulp.dest('dist'));
-});
-
-

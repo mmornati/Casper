@@ -31,7 +31,7 @@ const handleError = (done) => {
 
 function hbs(done) {
     pump([
-        src(['*.hbs', 'partials/**/*.hbs', '!node_modules/**/*.hbs']),
+        src(['*.hbs', 'partials/**/*.hbs']),
         livereload()
     ], handleError(done));
 }
@@ -79,7 +79,7 @@ function zipper(done) {
 }
 
 const cssWatcher = () => watch('assets/css/**', css);
-const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs', '!node_modules/**/*.hbs'], hbs);
+const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs'], hbs);
 const watcher = parallel(cssWatcher, hbsWatcher);
 const build = series(css, js);
 const dev = series(build, serve, watcher);
@@ -99,7 +99,7 @@ try {
     config = null;
 }
 
-const REPO = 'TryGhost/Casper';
+const REPO = 'mmornati/Casper';
 const USER_AGENT = 'Casper';
 const CHANGELOG_PATH = path.join(process.cwd(), '.', 'changelog.md');
 
@@ -203,16 +203,5 @@ const release = () => {
                 });
         });
 };
+
 exports.release = release;
-
-gulp.task('default', ['build'], function () {
-    gulp.start('watch');
-});
-
-gulp.task('release', ['css'], function() {
-    gulp.src(['*', '*/**', '!.git/', '!node_modules/', '!node_modules/**', '!./dist/'])
-        .pipe(zip('casper-mornati-net.zip'))
-        .pipe(gulp.dest('dist'));
-});
-
-

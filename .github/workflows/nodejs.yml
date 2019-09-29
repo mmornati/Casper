@@ -27,10 +27,10 @@ jobs:
     - name: Create release when on master
       if: github.ref == 'refs/heads/master'
       run: |
-        npm run-scripts zip
+        npm run-script zip
     - uses: actions/upload-artifact@master
       if: github.ref == 'refs/heads/master'
       with:
-        name: casper-mornati-net.zip
+        name: casper-mornati-net-${{ matrix.node-version }}.zip
         path: ./dist/casper-mornati-net.zip
 
